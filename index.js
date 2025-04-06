@@ -4,6 +4,7 @@ import findTheBiggestFile from './src/modules/hw4/findTheBiggestFile.js';
 import mockPasswordsAndRunCompare from './src/modules/hw5/mockPasswordsAndRunCompare.js';
 import logDigitalSigniture from './src/modules/hw6/createDigitalSignitureAndValidate.js';
 import logSha256Hash from './src/modules/hw7/hashPassSha256.js';
+import logChatMessages from './src/modules/hw8/eventEmitter.js';
 
 // HW 1
 copyFileData();
@@ -19,3 +20,5 @@ mockPasswordsAndRunCompare();
 logDigitalSigniture();
 //HW 7
 logSha256Hash();
+//HW 8
+logChatMessages;
