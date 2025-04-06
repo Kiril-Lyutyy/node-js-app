@@ -7,4 +7,7 @@ copyFileData();
 //HW 3
 writeUpdatedData();
 //HW 4
+// root dir
 findTheBiggestFile();
+// try it with an empty dir 
+findTheBiggestFile('./emptyDir');

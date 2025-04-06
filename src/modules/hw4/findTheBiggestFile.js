@@ -26,26 +26,21 @@ const findTheBiggestFile = async (dirPath = '.') => {
         const filesList = await getDirContent(dirPath);
 
         if (!filesList?.length) {
-            console.log('No files found.');
+            console.log('No files found');
+
             return;
         }
 
-        const filesWithSize = [];
+        const filesWithStats = await Promise.all(
+            filesList.map(async (file) => {
+                const fullPath = path.join(dirPath, file);
+                const stats = await getFileStats(fullPath);
 
-        for (const file of filesList) {
-            const fullPath = path.join(dirPath, file);
-            const stats = await getFileStats(fullPath);
-
-            if (stats?.isFile()) {
-                filesWithSize.push({
-                    name: file,
-                    size: stats.size
-                });
-            }
-        }
-
-        const biggestFile = filesWithSize.reduce((max, file) =>
-            file.size > max.size ? file : max,
+                return { name: file, size: stats.size }
+            })
+        );
+        const biggestFile = filesWithStats.reduce((acc, cur) =>
+            cur.size > acc.size ? cur : acc,
             { name: '', size: 0 }
         );
         const fileStatsStr = `${biggestFile.name} ${biggestFile.size} bytes`
