@@ -14,8 +14,6 @@ copyFileData();
 writeUpdatedData();
 //root dir
 findTheBiggestFile();
-//try it with an empty dir 
-findTheBiggestFile('./emptyDir');
 //HW-5
 mockPasswordsAndRunCompare();
 //HW-6
