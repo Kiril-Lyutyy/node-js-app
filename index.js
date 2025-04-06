@@ -1,3 +1,7 @@
-const fn = require('./src/module');
+import copyFileData from './src/modules/hw1/copyFileData.js';
+import writeUpdatedData from './src/modules/hw3/writeUpdatedData.js';
 
-console.log(fn());
+// HW 1
+copyFileData();
+//HW 3
+writeUpdatedData();
